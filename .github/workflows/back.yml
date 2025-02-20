@@ -27,6 +27,7 @@ jobs:
           
 
   deploy_API:
+    needs: build_API
     runs-on: ubuntu-latest
     steps:
         - name: Deploy container on Scaleway
