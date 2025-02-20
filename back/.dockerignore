@@ -1,6 +1,7 @@
 node_modules
 .env
 prisma/migrations/
+prisma/file.db
 Dockerfile
 .git
 .gitignore
