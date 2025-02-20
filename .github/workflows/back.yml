@@ -29,6 +29,8 @@ jobs:
   deploy_API:
     needs: build_API
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
         - name: Deploy container on Scaleway
           uses: scaleway/action-scw@v0.0.2
@@ -43,7 +45,7 @@ jobs:
           run: scw container container create name=deploy-back namespace-id=c18c7dc3-312e-40d1-9275-203f49e3ca5a registry-image=rg.fr-par.scw.cloud/namespace-karl-dambreville/devops-final-back:latest
         - name: get domain
           run: | 
-              DOMAIN_NAME=$(scw container get 717fb5f9-95c3-4c0b-84db-2321283e46dc -o json | jq -r '.domain_name')
+              DOMAIN_NAME=$(scw container container get 717fb5f9-95c3-4c0b-84db-2321283e46dc -o json | jq -r '.domain_name')
               gh variable set SCW_CONTAINER_DOMAIN --body "$DOMAIN_NAME"
 
         
