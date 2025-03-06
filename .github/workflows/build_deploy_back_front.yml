@@ -44,7 +44,7 @@ jobs:
           
         - name: deploy on scw
           run: |
-            RESULT=$(scw container container create name=deploy-back \ 
+            RESULT=$(scw container container create name=deploy-back \
             namespace-id=c18c7dc3-312e-40d1-9275-203f49e3ca5a \
             registry-image=rg.fr-par.scw.cloud/namespace-karl-dambreville/devops-final-back:latest \
             port=3000 max-scale=1 cpu-limit=100 memory-limit=128 \
@@ -100,4 +100,4 @@ jobs:
                 scw container container create name=deploy-front \
                 namespace-id=c18c7dc3-312e-40d1-9275-203f49e3ca5a \
                 registry-image=rg.fr-par.scw.cloud/namespace-karl-dambreville/devops-final-front:latest \
-                port=80 max-scale=1 cpu-limit=100 memory-limit=128 
+                port=80 max-scale=1 cpu-limit=100 memory-limit=128
